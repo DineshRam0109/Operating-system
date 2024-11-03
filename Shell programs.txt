@@ -1,0 +1,47 @@
+
+a) Program to check the given number is odd or even:
+echo "Enter the Number"
+read n
+r=`expr $n % 2`
+if [ $r -eq 0 ]
+then
+echo "$n is Even number"
+else
+echo "$n is Odd Number"
+fi
+
+
+b) Program to check whether the given year is leap year or not :
+echo "Enter the year:"
+read y
+b=`expr $y % 4`
+if [ $b -eq 0 ]
+then
+echo "$y is a leap year"
+else
+echo "$y is not a leap year"
+fi
+
+
+c) Program to find the factorial of a number :
+echo "Enter a number"
+read n
+i=`expr $n - 1`
+while [ $i -ge 1 ]
+do
+n=`expr $n \* $i`
+i=`expr $i - 1`
+done
+echo "The factorial is $n"
+
+
+d) Program to swap two integers :
+echo "Enter a number"
+read n
+i=`expr $n - 1`
+while [ $i -ge 1 ]
+do
+n=`expr $n \* $i`
+i=`expr $i - 1`
+done
+echo "The factorial is $n"

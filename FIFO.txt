@@ -1,0 +1,50 @@
+
+#include<stdio.h>
+int main() {
+int i = 0, j = 0, i1 = 0, m, n, rs[30], flag = 1, p[30];
+printf("FIFO page replacement algorithm....\n");
+printf("Enter the number of frames: ");
+scanf("%d", &n);
+if (n <= 0 || n > 30) {
+printf("Invalid number of frames.\n");
+return 1;
+}
+printf("Enter the reference string (terminate with 0): ");
+while (1) {
+scanf("%d", &rs[i]);
+if (rs[i] == 0)
+break;
+i++;
+if (i >= 30) {
+printf("Too many elements entered.\n");
+return 1;
+}
+}
+m = i;
+for (j = 0; j < n; j++)
+p[j] = 0;
+printf("\n");
+for (i = 0; i < m; i++) {
+flag = 1;
+for (j = 0; j < n; j++) {
+if (p[j] == rs[i]) {
+printf("Page %d already in page frame.\n", rs[i]);
+flag = 0;
+break;
+}
+}
+if (flag == 1) {
+printf("Page fault occurred. Adding page %d to page frame.\n", rs[i]);
+p[i1] = rs[i];
+i1 = (i1 + 1) % n;
+}
+printf("Page frame: ");
+for (j = 0; j < n; j++) {
+printf("%d ", p[j]);
+}
+printf("\n\n");
+}
+int page_faults = m - n;
+printf("Total number of page faults = %d\n", page_faults);
+return 0;
+}
